@@ -5,7 +5,151 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Les Petits Plats</title>
+    <link
+      rel="shortcut icon"
+      href="/assets/icons/favicon.png"
+      type="image/png"
+    />
     <script src="/css/main.css"></script>
   </head>
-  <body></body>
+  <body>
+    <header class="header">
+      <img
+        src="/assets/icons/icon.png"
+        alt="Logo de Les Petits Plats"
+        class="logo"
+      />
+      <!-- Hidden Title for Semantic -->
+      <h1 class="header-title">Les petits plats</h1>
+    </header>
+
+    <main>
+      <article class="search">
+        <section class="search-bar">
+          <input
+            type="text"
+            name="searchbar"
+            id="searchbar"
+            class="search-bar-input"
+            placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette"
+          />
+          <span class="search-bar-icon">
+            <i class="far fa-search"></i>
+          </span>
+        </section>
+        <section class="search-tags">
+          <ul id="tags">
+            <li class="search-tags-item" data-type="ingredient" data-name="coco">
+              <span class="tag tag-ingredient">
+                Coco
+              </span>
+            </li>
+            <li class="search-tags-item" data-type="device" data-name="mixeur">
+              <span class="tag tag-device">
+                Mixeur
+              </span>
+            </li>
+            <li class="search-tags-item" data-type="utensil" data-name="fouet">
+              <span class="tag tag-utensil">
+                Fouet
+              </span>
+            </li>
+          </ul>
+        </section>
+        <section class="search-filters">
+          <div class="search-filters-item dropdown">
+            <div class="dropdown-form">
+              <input type="text" name="dropdown-ingredients" id="dropdown-ingredients" data-placeholder="Ingrédients" data-placeholder-focus="Recherche un ingrédient" class="dropdown-form-input">
+              <span class="dropdown-form-icon">
+                <i class="far fa-angle-up"></i>
+              </span>
+            </div>
+            <ul class="dropdown-items" id="filters-ingredients">
+              <li>
+                <a href="#!" class="dropdown-link">Lait de coco</a>
+              </li>
+              <li>
+                <a href="#!" class="dropdown-link">Jus de citron</a>
+              </li>
+              <li>
+                <a href="#!" class="dropdown-link">Crème de coco</a>
+              </li>
+              <li>
+                <a href="#!" class="dropdown-link">Sucre</a>
+              </li>
+              <li>
+                <a href="#!" class="dropdown-link">Glaçons</a>
+              </li>
+            </ul>
+          </div>
+          <div class="search-filters-item dropdown">
+            <div class="dropdown-form">
+              <input type="text" name="dropdown-devices" id="dropdown-devices" data-placeholder="Appareil" data-placeholder-focus="Recherche un appareil" class="dropdown-form-input">
+              <span class="dropdown-form-icon">
+                <i class="far fa-angle-up"></i>
+              </span>
+            </div>
+            <ul class="dropdown-items" id="filters-devices">
+              <li>
+                <a href="#!" class="dropdown-link">Mixeur</a>
+              </li>
+            </ul>
+          </div>
+          <div class="search-filters-item dropdown">
+            <div class="dropdown-form">
+              <input type="text" name="dropdown-utensils" id="dropdown-utensils" data-placeholder="Ustensiles" data-placeholder-focus="Recherche un ustensil" class="dropdown-form-input">
+              <span class="dropdown-form-icon">
+                <i class="far fa-angle-up"></i>
+              </span>
+            </div>
+            <ul class="dropdown-items" id="filters-utensils">
+              <li>
+                <a href="#!" class="dropdown-link">Fouet</a>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </article>
+      <article class="recipes" id="recipes">
+        <section class="recipes-item">
+          <img src="/assets/recipes/_empty.png" alt="Recette" class="recipes-item-banner">
+          <div class="recipes-item-top">
+            <p class="recipes-item-title">Limonade de Coco</p>
+            <p class="recipes-item-time">
+              <span>
+                <i class="far fa-clock"></i>
+              </span>
+              10 min
+            </p>
+          </div>
+          <div class="recipes-item-bottom">
+            <p class="recipes-item-ingredients">
+              <ul class="recipes-item-ingredients-list">
+                <li>
+                  <strong>Lait de coco:</strong> 400ml
+                </li>
+                <li>
+                  <strong>Jus de citron:</strong> 2
+                </li>
+                <li>
+                  <strong>Crème de coco:</strong> 4 cuillères
+                </li>
+                <li>
+                  <strong>Sucre:</strong> 20g
+                </li>
+                <li>
+                  <strong>Glaçons:</strong> 2
+                </li>
+              </ul>
+            </p>
+            <p class="recipes-item-explanation">
+              Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée
+            </p>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <script src="/js/recipes.js"></script>
+  </body>
 </html>
