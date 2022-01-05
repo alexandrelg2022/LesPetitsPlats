@@ -1,0 +1,6 @@
+@mixin container {
+  width: calc(100% - 20px * 2);
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}

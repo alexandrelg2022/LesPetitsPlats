@@ -1,0 +1,238 @@
+@import url("https://pro.fontawesome.com/releases/v5.10.0/css/all.css");
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.header-title {
+  display: none;
+}
+
+.search {
+  width: calc(100% - 20px * 2);
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.search-bar, .search-tags, .search-filters {
+  width: 100%;
+  padding: 5px 0;
+}
+.search-tags ul {
+  display: flex;
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+.search-tags-item {
+  margin-right: 10px;
+}
+.search-filters {
+  display: flex;
+  align-items: flex-start;
+}
+.search-filters div {
+  margin-right: 5px;
+}
+
+.recipes {
+  width: calc(100% - 20px * 2);
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+.recipes-item {
+  background-color: #E7E7E7;
+  display: flex;
+  flex-wrap: wrap;
+  width: 32%;
+  border-radius: 5px;
+}
+.recipes-item:nth-child(n+4) {
+  margin-top: 2%;
+}
+.recipes-item-banner {
+  width: 100%;
+}
+.recipes-item-top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.recipes-item-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px 30px 20px;
+  padding-bottom: 30px;
+}
+.recipes-item-title {
+  font-size: 18px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.recipes-item-time {
+  font-size: 18px;
+  font-weight: 700;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.recipes-item-ingredients {
+  list-style-type: none;
+  padding-inline-start: 0;
+  width: 45%;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.recipes-item-explanation {
+  width: 45%;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.dropdown {
+  background-color: #E7E7E7;
+  border-radius: 5px;
+}
+.dropdown-ingredient {
+  background-color: #3282F7;
+}
+.dropdown-device {
+  background-color: #68D9A4;
+}
+.dropdown-utensil {
+  background-color: #ED6454;
+}
+.dropdown-form {
+  width: auto;
+  padding: 20px 15px;
+  padding-right: 35px;
+  position: relative;
+}
+.dropdown-form-input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+}
+.dropdown-form-input::placeholder {
+  color: white;
+}
+.dropdown-form-input:focus::placeholder {
+  color: #E7E7E7;
+}
+.dropdown-form-button {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  color: #fff;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.dropdown-items {
+  display: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+  list-style-type: none;
+  padding: 20px 15px;
+  padding-top: 0;
+  flex-wrap: wrap;
+}
+.dropdown-items li {
+  display: block;
+  width: 33.33%;
+  margin: 2px 0;
+}
+.dropdown-link {
+  color: #fff;
+  text-decoration: none;
+}
+.dropdown-open {
+  width: 100%;
+}
+.dropdown-open .dropdown-items {
+  display: flex;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+}
+
+.searchbar {
+  position: relative;
+}
+.searchbar-input {
+  width: 100%;
+  color: #000;
+  background-color: #E7E7E7;
+  font-size: 18px;
+  padding: 22px;
+  padding-right: calc(22px * 2 + 18px);
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+.searchbar-button {
+  position: absolute;
+  right: 22px;
+  top: 22px;
+  font-size: 18px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.tag {
+  padding: 10px 20px;
+  padding-right: 40px;
+  position: relative;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #E7E7E7;
+  border-radius: 5px;
+}
+.tag-ingredient {
+  background-color: #3282F7;
+}
+.tag-device {
+  background-color: #68D9A4;
+}
+.tag-utensil {
+  background-color: #ED6454;
+}
+.tag-delete {
+  position: absolute;
+  top: 7.5px;
+  right: 5px;
+  font-size: 20px;
+  border: none;
+  color: #fff;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=main.css.map */

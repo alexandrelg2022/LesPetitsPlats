@@ -1,0 +1,25 @@
+.searchbar {
+  position: relative;
+
+  &-input {
+    width: 100%;
+    color: $color-primary-1;
+    background-color: $color-primary-1-bg;
+    font-size: 18px;
+    padding: 22px;
+    padding-right: calc(22px * 2 + 18px);
+    border: none;
+    border-radius: 5px;
+    outline: none;
+  }
+
+  &-button {
+    position: absolute;
+    right: 22px;
+    top: 22px;
+    font-size: 18px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}

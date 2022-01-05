@@ -1,0 +1,33 @@
+.tag {
+  padding: 10px 20px;
+  padding-right: 40px;
+  position: relative;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background-color: $color-primary-1-bg;
+  border-radius: 5px;
+
+  &-ingredient {
+    background-color: $color-secondary-1;
+  }
+
+  &-device {
+    background-color: $color-secondary-2;
+  }
+
+  &-utensil {
+    background-color: $color-secondary-3;
+  }
+
+  &-delete {
+    position: absolute;
+    top: 7.5px;
+    right: 5px;
+    font-size: 20px;
+    border: none;
+    color: #fff;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}

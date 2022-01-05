@@ -1,0 +1,84 @@
+.dropdown {
+  background-color: $color-primary-1-bg;
+  border-radius: 5px;
+
+  &-ingredient {
+    background-color: $color-secondary-1;
+  }
+
+  &-device {
+    background-color: $color-secondary-2;
+  }
+
+  &-utensil {
+    background-color: $color-secondary-3;
+  }
+
+  &-form {
+    width: auto;
+    padding: 20px 15px;
+    padding-right: 35px;
+    position: relative;
+
+    &-input {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      color: white;
+      font-size: 18px;
+      font-weight: 700;
+
+      &::placeholder {
+        color: white;
+      }
+
+      &:focus {
+        &::placeholder {
+          color: $color-primary-1-bg;
+        }
+      }
+    }
+
+    &-button {
+      position: absolute;
+      right: 10px;
+      top: 20px;
+      color: #fff;
+      font-size: 16px;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+
+  &-items {
+    display: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+    list-style-type: none;
+    padding: 20px 15px;
+    padding-top: 0;
+    flex-wrap: wrap;
+
+    li {
+      display: block;
+      width: 33.33%;
+      margin: 2px 0;
+    }
+  }
+
+  &-link {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &-open {
+    width: 100%;
+  }
+
+  &-open &-items {
+    display: flex;
+  }
+}

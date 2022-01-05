@@ -1,0 +1,33 @@
+.search {
+  @include container;
+
+  width: 100%;
+
+  &-bar,
+  &-tags,
+  &-filters {
+    width: 100%;
+    padding: 5px 0;
+  }
+
+  &-tags {
+    ul {
+      display: flex;
+      list-style-type: none;
+      padding-inline-start: 0;
+    }
+
+    &-item {
+      margin-right: 10px;
+    }
+  }
+
+  &-filters {
+    display: flex;
+    align-items: flex-start;
+
+    div {
+      margin-right: 5px;
+    }
+  }
+}
