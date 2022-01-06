@@ -7,6 +7,10 @@
   flex-wrap: wrap;
   padding: 20px 0;
 
+  @include laptop-only{
+    padding-top: 0;
+  }
+
   &-item {
     background-color: $color-primary-1-bg;
     display: flex;
@@ -14,6 +18,22 @@
     width: 32%;
     border-radius: 5px;
     //cursor: pointer;
+
+    @include laptop-only{
+      width: 49%;
+
+      &:nth-child(n+3) {
+        margin-top: 2%;
+      }
+    }
+
+    @include tablet-only{
+      width: 100%;
+
+      &:nth-child(n+1) {
+        margin-top: 3%;
+      }
+    }
 
     &:nth-child(n+4){
       margin-top: 2%;

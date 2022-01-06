@@ -8,13 +8,19 @@
   &-filters {
     width: 100%;
     padding: 5px 0;
+
+    @include laptop-only{
+      padding: 0;
+    }
   }
 
   &-tags {
     ul {
       display: flex;
       list-style-type: none;
+      flex-wrap: wrap;
       padding-inline-start: 0;
+      line-height: 45px;
     }
 
     &-item {
@@ -26,8 +32,16 @@
     display: flex;
     align-items: flex-start;
 
+    @include laptop-only{
+      flex-wrap: wrap;
+    }
+
     div {
       margin-right: 5px;
+
+      @include laptop-only{
+        margin-bottom: 5px;
+      }
     }
   }
 }

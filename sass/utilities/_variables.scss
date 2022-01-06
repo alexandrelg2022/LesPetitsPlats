@@ -4,3 +4,11 @@ $color-primary-1-bg: #E7E7E7;
 $color-secondary-1: #3282F7;
 $color-secondary-2: #68D9A4;
 $color-secondary-3: #ED6454;
+
+$breakpoints: (
+  mobile: 480px,
+  tablet: 760px,
+  laptop: 1024px,
+  desktop: 1200px,
+  extra: 1400px
+);

@@ -66,6 +66,14 @@
       display: block;
       width: 33.33%;
       margin: 2px 0;
+
+      @include tablet-only{
+        width: 50%;
+      }
+
+      @include mobile-only{
+        width: 100%;
+      }
     }
   }
 
