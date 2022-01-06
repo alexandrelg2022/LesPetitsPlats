@@ -20,11 +20,12 @@ const recipes = [
       },
       {
         ingredient: "Sucre",
-        quantite: 30,
+        quantity: 30,
         unit: "grammes",
       },
       {
         ingredient: "Glaçons",
+        quantity: 2,
       },
     ],
     time: 10,
@@ -53,7 +54,7 @@ const recipes = [
       },
       {
         ingredient: "Carotte",
-        quantite: 1,
+        quantity: 1,
       },
       {
         ingredient: "Citron Vert",
@@ -262,7 +263,7 @@ const recipes = [
     description:
       "Etaler la pate dans les moules à tartelette. Faire cuire la pate 30 minutes. Découper le chocolat en morceau et le faire chauffer, y ajouter la crême liquide, ajouter le beurre et remuer jusqu'à avoir une pâte homogène. Verser la pate sur les tartelettes. Couper les fraises en 2 et les positionner sur ",
     appliance: "Four",
-    ustensils: ["moule à tartelettes (6)", "casserolle"],
+    ustensils: ["moule à tartelettes (6)", "casserole"],
   },
   {
     id: 8,
@@ -303,40 +304,7 @@ const recipes = [
     description:
       "Hachez les noix grossièrement. Faire fondre le chocolat avec le beurre. Mélanger les oeuf et le sucre et mélanger au chocolat. Ajouter la farine. Mélanger afin d'avoir quelque chose d'homogène puis incorporer les noix. Verser la préparation dans un moule de préférence rectangulaire. Cuire 2O à 25 minutes à 180°. Sortez du four et attendez quelques minutes pour démouler. Servir avec une boule de glace pour plus de gourmandise.",
     appliance: "Four",
-    ustensils: ["moule à gateaux", "casserolle"],
-  },
-  {
-    id: 9,
-    name: "Salade Méditerannéene fraiche au chèvre",
-    servings: 4,
-    ingredients: [
-      {
-        ingredient: "Concombre",
-        quantity: 1,
-      },
-      {
-        ingredient: "Olives",
-      },
-      {
-        ingredient: "Fromage de chèvre",
-        quantity: 150,
-        unit: "grammes",
-      },
-      {
-        ingredient: "Vinaigre Balsamic",
-      },
-      {
-        ingredient: "Huile d'olive",
-      },
-      {
-        ingredient: "Basilic",
-      },
-    ],
-    time: 15,
-    description:
-      "Peler le concombre le couper 2, retirer les pépins. Couper les olives en morceaux, ainsi que le fromage de chèvre. Ajouter le basilic ainsi que le vinaigre balsamic et l'huile d'olives à votre gout.",
-    appliance: "Saladier",
-    ustensils: ["cuillère en bois", "couteau"],
+    ustensils: ["moule à gateaux", "casserole"],
   },
   {
     id: 10,
@@ -441,7 +409,7 @@ const recipes = [
     ],
     time: 40,
     description:
-      "Éplucher les fruits et les couper en morceaux, les mettre dans une casserolle en ajoutant l'eau et le sucre vanillé. Laisser cuire 15 minutes en remuant régulièrement.",
+      "Éplucher les fruits et les couper en morceaux, les mettre dans une casserole en ajoutant l'eau et le sucre vanillé. Laisser cuire 15 minutes en remuant régulièrement.",
     appliance: "Casserole",
     ustensils: ["couteau", "économe"],
   },
@@ -620,9 +588,6 @@ const recipes = [
         ingredient: "Glaçons",
         quantity: 8,
       },
-      {
-        ingredient: "Menthe",
-      },
     ],
     time: 15,
     description:
@@ -765,7 +730,7 @@ const recipes = [
     time: 30,
     description:
       "Cuisiner la viande hachée dans une poelle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oigons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le coulis de tomates à la viande hachée. Une fois que les pates sont cuites, ajouter la crème fraiche à la viande hachée. Serivir.",
-    appliance: "Casserolle.",
+    appliance: "casserole",
     ustensils: ["Cuillère en bois", "louche", "couteau"],
   },
   {
@@ -802,7 +767,7 @@ const recipes = [
     description:
       "Faire fondre le chocolat et le beurre au bain marie. Dans un saladier battre les oeufs avec le sucre jusqu'à obtenir une texture de type mousse. Ajouter la farine ainsi que le mélange de beurre et chocolat fondu. Beurrez le moule à gateaux. Mettre au four préchauffé à 200° puis faites chauffer pendant 15 minutes. C'est prêt. Servir avec une boule de glace ou une crême dessert.",
     appliance: "Four",
-    ustensils: ["moule à gateaux", "fouet", "casserolle"],
+    ustensils: ["moule à gateaux", "fouet", "casserole"],
   },
   {
     id: 23,
@@ -922,38 +887,6 @@ const recipes = [
     ustensils: ["fouet", "saladier", "plaque de cuisson"],
   },
   {
-    id: 26,
-    name: "Soupe de tomates",
-    servings: 2,
-    ingredients: [
-      {
-        ingredient: "Tomate",
-        quantity: 6,
-      },
-      {
-        ingredient: "Pommes de terre",
-        quantity: 1,
-      },
-      {
-        ingredient: "Huile d'olives",
-      },
-      {
-        ingredient: "Oignon",
-        quantity: 1,
-      },
-      {
-        ingredient: "Ail",
-        quantity: 1,
-        unit: "gousses",
-      },
-    ],
-    time: 25,
-    description:
-      "Verser de l'huile dans une cocotte minute couper les légumes et les verser dans l'huile chaude. Laisser cuire et remuer pendant 10 minutes. Passer aux mixer. Servir.",
-    appliance: "Mixer",
-    ustensils: ["cocotte minute", "couteau"],
-  },
-  {
     id: 27,
     name: "Soupe à l'oseille",
     servings: 4,
@@ -985,7 +918,7 @@ const recipes = [
     time: 15,
     description:
       "Faire fondre l'oseille avec du beurre demi sel, ajouter un litre d'eau. Ajouter les vermicelles. Laisser cuire. une foit prêt, sortir du feu et après 5 minutes ajouter le jaune d'oeuf et la crême fraîche",
-    appliance: "Casserolle",
+    appliance: "casserole",
     ustensils: ["couteau", "cuillère en bois"],
   },
   {
@@ -1022,39 +955,7 @@ const recipes = [
     description:
       "Emincer les blanc de poireaux et les faire chauffer dans 25 grammes de beurre. AJouter les pommes de terres coupées en morceaux. Ajouter l'eau et laisser mijoter pour 45 minutes. Chauffer l'oseille avec le beurre restant puis incorporer le tout. Mixez. Ajoutez la crème. Bon appetit.",
     appliance: "Mixer",
-    ustensils: ["casserolle", "couteau"],
-  },
-  {
-    id: 29,
-    name: "Houmous Express",
-    servings: 2,
-    ingredients: [
-      {
-        ingredient: "Pois chiches",
-        quantity: 1,
-        unit: "boites",
-      },
-      {
-        ingredient: "Ail",
-        quantity: 1,
-        unit: "gousses",
-      },
-      {
-        ingredient: "Citron",
-        quantity: 2,
-      },
-      {
-        ingredient: "Huile d'olive",
-      },
-      {
-        ingredient: "Paprika",
-      },
-    ],
-    time: 30,
-    description:
-      "Prendre les pois chiches, les mettre dans le mixer avec de l'huile d'olive, ajouter le jus des 2 citrons et du paprika selon le gout.",
-    appliance: "Mixer",
-    ustensils: ["cuillère en bois", "presse citron"],
+    ustensils: ["casserole", "couteau"],
   },
   {
     id: 30,
@@ -1080,7 +981,7 @@ const recipes = [
     description:
       "Mettre tous les ingrédients dans une cocotte. ajouter de l'eau pour recouvrir l'ensemble et laisser cuirre à petit feur pour 1 heure. Passer au mixer. Salez, poivrez. C'est prêt",
     appliance: "Mixer",
-    ustensils: ["casserolle", "cuillère en bois"],
+    ustensils: ["casserole", "cuillère en bois"],
   },
   {
     id: 31,
@@ -1194,35 +1095,6 @@ const recipes = [
       "Mélanger le fromage blanc avec le citron. Ajouter un peu de sel et poivre à votre gout. Faire dorer le pain de mie. Puis étaler le mélange. Ajouter une feuille de salade puis le saumon fumé. C'est prêt.",
     appliance: "Four",
     ustensils: ["couteau", "cuillère en bois"],
-  },
-  {
-    id: 34,
-    name: "Purée de patate douce",
-    servings: 4,
-    ingredients: [
-      {
-        ingredient: "Patate douce",
-        quantity: 800,
-        unit: "grammes",
-      },
-      {
-        ingredient: "Crème fraîche",
-        quantity: 20,
-        unit: "cl",
-      },
-      {
-        ingredient: "Huile d'olive",
-      },
-      {
-        ingredient: "Orange",
-        quantity: 1,
-      },
-    ],
-    time: 25,
-    description:
-      "Eplucher les patates douces et coupez les en morceaux. Les faire cuire durant 20 minute dans une casserolle d'eau bouillante. Passer au mixer en ajoutant la crème et l'huile d'olive à son gout. Salez, poivrez. Pressez l'orange et ajouter le jus à l'ensemble. Servir.",
-    appliance: "Mixer",
-    ustensils: ["couteau", "économe", "cuillère en bois"],
   },
   {
     id: 35,
@@ -1460,7 +1332,7 @@ const recipes = [
     time: 20,
     description:
       "Séparer les blancs d'oeufs. Faire fondre le chocolat au bain marie. Ajouter les jaunes et le sucre au chocolat hors du feu. Battre les blancs en neige. Ajouter les blancs au mélange de chocolat. Mélangez délicatement avec une spatule. Servir dans un plat ou dans des verres. Mettre au frais",
-    appliance: "Casserolle",
+    appliance: "casserole",
     ustensils: ["fouet", "spatule", "verres"],
   },
   {
@@ -1492,40 +1364,6 @@ const recipes = [
       "Commencez par préparer la mousse au chocolat au moins 2 heures avant. Quand la mousse est prête et a reposée. Alors mouiller les boudoirs dans le jus des poires. Disposer. Alterner : mousse au chocolat, boudoirs et poires. Mettre au frais.",
     appliance: "Moule à charlotte",
     ustensils: ["saladier", "couteau", "fouet"],
-  },
-  {
-    id: 43,
-    name: "Tarte au citron",
-    servings: 6,
-    ingredients: [
-      {
-        ingredient: "Pâte brisée",
-        quantity: 200,
-        unit: "grammes",
-      },
-      {
-        ingredient: "Sucre",
-        quantity: 150,
-        unit: "grammes",
-      },
-      {
-        ingredient: "Beurre fondu",
-        quantity: 100,
-        unit: "grammes",
-      },
-      {
-        ingredient: "Oeuf",
-        quantity: 3,
-      },
-      {
-        ingredient: "Citron",
-      },
-    ],
-    time: 50,
-    description:
-      "Préchauffez le fours à 200°. Etaler la pate. La mettre dans un moule. Battre les oeufs avec le sucre. Ajouter le jus de citron et le beurre. Verser le tout sur la pate. Au four 30 minutes. Bon appetit ",
-    appliance: "Four",
-    ustensils: ["rouleau à patisserie", "moule à tarte", "presse citron"],
   },
   {
     id: 44,
@@ -1561,7 +1399,7 @@ const recipes = [
     time: 15,
     description:
       "Mélanger la farine et le beurre fondu en ajoutant le lait peu à peu. Ajouter du sucre après la cuisson. Bien mélanger. Ajouter le chocolat en morceaux et laisser chauffer 8 minutes en mélangeant avec une cuillère en bois. Mettre dans des verres",
-    appliance: "Casserolle",
+    appliance: "casserole",
     ustensils: ["cuillère en bois"],
   },
   {
@@ -1592,7 +1430,7 @@ const recipes = [
     time: 30,
     description:
       "Faire bouillir le lait ( on peut y ajouter de l'essence de vanille. Battre les oeufs et le sucre, ajouter la farine puis finalement ajouter le lait chaud. Remettre à feu doux pour faire épaissir en remuant pendant 5 à 10 minutes.",
-    appliance: "Casserolle",
+    appliance: "casserole",
     ustensils: ["fouet", "saladier"],
   },
   {
@@ -1775,3 +1613,80 @@ const recipes = [
     ustensils: ["rouleau à patisserie", "fouet"],
   },
 ];
+
+function getRecipes () {
+  return recipes;
+}
+
+function getIngredients () {
+  let stock = [];
+
+  getRecipes().forEach((recipe) => {
+    const ingredients = recipe.ingredients;
+
+    ingredients.forEach((ingredient) => {
+      stock.push(ingredient.ingredient);
+    });
+  });
+
+  let output = [];
+  stock.forEach((stockElement) => {
+    if(output.includes(stockElement.toLowerCase())) return;
+
+    output.push(stockElement.toLowerCase());
+  });
+
+  output = output.sort(function (a, b) {
+    return a === b ? 0 : (a > b ? 1 : -1);
+  });
+
+  return output;
+}
+
+function getDevices () {
+  let stock = [];
+
+  getRecipes().forEach((recipe) => {
+    const device = recipe.appliance;
+
+    stock.push(device);
+  });
+
+  let output = [];
+  stock.forEach((stockElement) => {
+    if(output.includes(stockElement.toLowerCase())) return;
+
+    output.push(stockElement.toLowerCase());
+  });
+
+  output = output.sort(function (a, b) {
+    return a === b ? 0 : (a > b ? 1 : -1);
+  });
+
+  return output;
+}
+
+function getUtensils () {
+  let stock = [];
+
+  getRecipes().forEach((recipe) => {
+    const utensils = recipe.ustensils;
+
+    utensils.forEach((utensil) => {
+      stock.push(utensil);
+    });
+  });
+
+  let output = [];
+  stock.forEach((stockElement) => {
+    if(output.includes(stockElement.toLowerCase())) return;
+
+    output.push(stockElement.toLowerCase());
+  });
+
+  output = output.sort(function (a, b) {
+    return a === b ? 0 : (a > b ? 1 : -1);
+  });
+
+  return output;
+}
