@@ -39,38 +39,10 @@
         </section>
         <section class="search-tags">
           <ul id="tags">
-            <li
-              class="search-tags-item"
-              data-type="ingredient"
-              data-name="coco"
-            >
-              <span class="tag tag-ingredient">
-                Coco
-                <button class="tag-delete">
-                  <i class="far fa-times-circle"></i>
-                </button>
-              </span>
-            </li>
-            <li class="search-tags-item" data-type="device" data-name="mixeur">
-              <span class="tag tag-device">
-                Mixeur
-                <button class="tag-delete">
-                  <i class="far fa-times-circle"></i>
-                </button>
-              </span>
-            </li>
-            <li class="search-tags-item" data-type="utensil" data-name="fouet">
-              <span class="tag tag-utensil">
-                Fouet
-                <button class="tag-delete">
-                  <i class="far fa-times-circle"></i>
-                </button>
-              </span>
-            </li>
           </ul>
         </section>
         <section class="search-filters">
-          <div class="search-filters-item dropdown dropdown-ingredient">
+          <div class="search-filters-item dropdown dropdown-ingredient" data-type="ingredient">
             <div class="dropdown-form">
               <input
                 type="text"
@@ -85,24 +57,24 @@
               </button>
             </div>
             <ul class="dropdown-items" id="filters-ingredients">
-              <li>
+              <li data-name="Lait de coco">
                 <a href="#!" class="dropdown-link">Lait de coco</a>
               </li>
-              <li>
+              <li data-name="Jus de citron">
                 <a href="#!" class="dropdown-link">Jus de citron</a>
               </li>
-              <li>
+              <li data-name="Crème de coco">
                 <a href="#!" class="dropdown-link">Crème de coco</a>
               </li>
-              <li>
+              <li data-name="Sucre">
                 <a href="#!" class="dropdown-link">Sucre</a>
               </li>
-              <li>
+              <li data-name="Glaçons">
                 <a href="#!" class="dropdown-link">Glaçons</a>
               </li>
             </ul>
           </div>
-          <div class="search-filters-item dropdown dropdown-device">
+          <div class="search-filters-item dropdown dropdown-device" data-type="device">
             <div class="dropdown-form">
               <input
                 type="text"
@@ -117,12 +89,12 @@
               </button>
             </div>
             <ul class="dropdown-items" id="filters-devices">
-              <li>
+              <li data-name="Mixeur">
                 <a href="#!" class="dropdown-link">Mixeur</a>
               </li>
             </ul>
           </div>
-          <div class="search-filters-item dropdown dropdown-utensil">
+          <div class="search-filters-item dropdown dropdown-utensil" data-type="utensil">
             <div class="dropdown-form">
               <input
                 type="text"
@@ -137,7 +109,7 @@
               </button>
             </div>
             <ul class="dropdown-items" id="filters-utensils">
-              <li>
+              <li data-name="Fouet">
                 <a href="#!" class="dropdown-link">Fouet</a>
               </li>
             </ul>
@@ -329,6 +301,7 @@
     </main>
 
     <script src="/js/recipes.js"></script>
+    <script src="/js/engine.js"></script>
     <script src="/js/dropdown.js"></script>
   </body>
 </html>
