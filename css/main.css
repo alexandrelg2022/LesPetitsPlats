@@ -276,6 +276,9 @@ body {
   display: flex;
   animation: dropdownMenuSlideIn 200ms ease-in-out 0ms 1 normal;
 }
+.dropdown-open .dropdown-form-button {
+  animation: dropdownOpenButtonReverse 300ms ease-in-out 150ms 1 normal forwards;
+}
 
 @keyframes dropdownMenuSlideIn {
   0% {
@@ -285,6 +288,14 @@ body {
   100% {
     transform: translateY(0px);
     opacity: 1;
+  }
+}
+@keyframes dropdownOpenButtonReverse {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(180deg);
   }
 }
 .logo {

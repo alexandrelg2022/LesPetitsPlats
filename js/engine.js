@@ -4,6 +4,10 @@ const tagsList = document.querySelector("#tags");
 const searchBar = document.querySelector("#searchbar");
 const recipesList = document.querySelector("#recipes");
 
+const ingredientsDropdown = new Dropdown(".dropdown[data-type='ingredient']");
+const devicesDropdown = new Dropdown(".dropdown[data-type='device']");
+const utensilsDropdown = new Dropdown(".dropdown[data-type='utensil']");
+
 let tags = [];
 let mainquery = "";
 let availableRecipes = [];
@@ -100,6 +104,20 @@ function addTag(name, type) {
 
   tags.push(tagItem);
 
+  switch (type) {
+    case "ingredient":
+      ingredientsDropdown.removeItem(name);
+      break;
+    case "device":
+      devicesDropdown.removeItem(name);
+      break;
+    case "utensil":
+      utensilsDropdown.removeItem(name);
+      break;
+    default:
+      break;
+  }
+
   renderTags();
   performAlgo();
 }
@@ -110,6 +128,20 @@ function removeTag(name, type) {
     const parsedParams = `${name}_${type}`;
     return parsedTag !== parsedParams;
   });
+
+  switch (type) {
+    case "ingredient":
+      ingredientsDropdown.addItem(name);
+      break;
+    case "device":
+      devicesDropdown.addItem(name);
+      break;
+    case "utensil":
+      utensilsDropdown.addItem(name);
+      break;
+    default:
+      break;
+  }
 
   renderTags();
   performAlgo();
@@ -124,6 +156,18 @@ function setQuery(query) {
 
 searchBar.addEventListener("keyup", (e) => {
   setQuery(e.target.value);
+});
+
+ingredientsDropdown.setCallback(function (name, type) {
+  addTag(name, type);
+});
+
+devicesDropdown.setCallback(function (name, type) {
+  addTag(name, type);
+});
+
+utensilsDropdown.setCallback(function (name, type) {
+  addTag(name, type);
 });
 
 // Algo

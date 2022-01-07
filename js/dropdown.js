@@ -1,123 +1,154 @@
-(function () {
-  document.querySelectorAll(".dropdown").forEach((dropdownElement) => {
-    const dropdownInput = dropdownElement.querySelector("input");
-    const dropdownButton = dropdownElement.querySelector("button");
-    const dropdownList = dropdownElement.querySelector("ul");
-    const dropdownIcon = dropdownElement.querySelector("i");
+let _registredDropdowns = [];
+class Dropdown {
+  constructor(querySelector, callback) {
+    const dropdownDomElement = document.querySelector(querySelector);
+    const dropdownDomList = dropdownDomElement.querySelector("ul");
+    const dropdownDomInput = dropdownDomElement.querySelector("input");
+    const dropdownButton = dropdownDomElement.querySelector("button");
+    const dropdownItems = [];
+    const dropdownExpandable = false;
+    const dropdownType = dropdownDomElement.getAttribute("data-type");
 
-    dropdownElement.value = "";
-    dropdownInput.placeholder = dropdownInput.getAttribute("data-placeholder");
+    this.domElement = dropdownDomElement;
+    this.domList = dropdownDomList;
+    this.domInput = dropdownDomInput;
+    this.domButton = dropdownButton;
+    this.items = dropdownItems;
+    this.expandable = dropdownExpandable;
+    this.type = dropdownType;
+    this.value = "";
+    this.callback = callback;
 
-    const dropdownItems = dropdownElement.querySelectorAll("li");
+    _registredDropdowns.push(this);
 
-    // Methods
+    this.registerDefault();
+  }
 
-    dropdownElement.isOpen = function () {
-      return dropdownElement.classList.contains("dropdown-open");
-    };
+  registerDefault() {
+    this.domInput.placeholder = this.domInput.getAttribute("data-placeholder");
+    this.domInput.disabled = !this.expandable;
+    this.domInput.value = this.value;
 
-    dropdownElement.open = function () {
-      document.querySelectorAll(".dropdown").forEach((loopedDropdown) => {
-        loopedDropdown.classList.remove("dropdown-open");
-      });
-      dropdownElement.classList.add("dropdown-open");
-    };
-
-    dropdownElement.close = function () {
-      dropdownElement.classList.remove("dropdown-open");
-      dropdownInput.value = "";
-    };
-
-    dropdownElement.refresh = function (value) {
-      const query = value.toLowerCase().replaceAll(" ", "_");
-      dropdownItems.forEach((itemElement) => {
-        const name = itemElement
-          .getAttribute("data-name")
-          .toLowerCase()
-          .replaceAll(" ", "_");
-        const display = name.includes(query);
-
-        itemElement.style.display = display ? "block" : "none";
-      });
-    };
-
-    dropdownElement.update = function () {
-      dropdownList.innerHTML = "";
-      const tempHolder = document.createElement("div");
-      switch (dropdownElement.getAttribute("data-type")) {
-        case "ingredient":
-          getIngredients().forEach((ingredient) => {
-            tempHolder.innerHTML = `<li data-name="${ingredient}">
-            <a href="#!" class="dropdown-link">${ingredient}</a>
-          </li>`;
-            dropdownList.append(tempHolder.firstChild);
-          });
-          break;
-        case "device":
-          getDevices().forEach((device) => {
-            tempHolder.innerHTML = `<li data-name="${device}">
-            <a href="#!" class="dropdown-link">${device}</a>
-          </li>`;
-            dropdownList.append(tempHolder.firstChild);
-          });
-          break;
-        case "utensil":
-          getUtensils().forEach((utensil) => {
-            tempHolder.innerHTML = `<li data-name="${utensil}">
-            <a href="#!" class="dropdown-link">${utensil}</a>
-          </li>`;
-            dropdownList.append(tempHolder.firstChild);
-          });
-          break;
-        default:
-          return;
-          break;
-      }
-    };
-
-    // Events
-
-    dropdownInput.addEventListener("keyup", (e) => {
-      dropdownElement.value = e.target.value;
-      dropdownElement.refresh(e.target.value);
+    this.domInput.addEventListener("keyup", (e) => {
+      this.value = e.target.value;
+      this.filterDomItems();
     });
 
-    dropdownInput.addEventListener("focusin", (e) => {
-      !dropdownElement.isOpen() && dropdownElement.open();
+    this.domInput.addEventListener("focusin", (e) => {
+      this.expandable && !this.isOpen() && this.open();
     });
 
-    dropdownElement.addEventListener("mouseout", (e) => {
-      const mouseOutElement = e.target;
+    this.domButton.addEventListener("click", (e) => {
+      const openCond = this.expandable && !this.isOpen();
+      const closeCond = this.isOpen();
 
-      let cancel = false;
-      dropdownElement.querySelectorAll("*").forEach((loopedElement) => {
-        if (loopedElement === mouseOutElement) {
-          cancel = true;
-        }
-      });
-
-      console.log(cancel);
-
-      if (cancel) return;
-
-      dropdownElement.close();
+      if (openCond) this.open();
+      if (closeCond) this.close();
     });
 
-    dropdownItems.forEach((itemElement) => {
-      itemElement.addEventListener("click", (e) => {
-        // Ajouter le tag en question
-        addTag(
-          itemElement.getAttribute("data-name"),
-          dropdownElement.getAttribute("data-type")
-        );
-        dropdownInput.value = "";
-        dropdownElement.close();
-        console.log("oui");
-      });
+    this.render();
+  }
+
+  closeAllDropdowns() {
+    _registredDropdowns.forEach((loopedDropdown) => {
+      loopedDropdown.close();
+    });
+  }
+
+  domItemTemplate(content) {
+    const tempHolder = document.createElement("div");
+
+    tempHolder.innerHTML = `<li data-name="${content}">
+    <a href="#!" class="dropdown-link">${content}</a>
+  </li>`;
+
+    tempHolder.firstChild.addEventListener("click", (e) => {
+      this.callback(content, this.type);
+      this.close();
     });
 
-    // Default exec
+    return tempHolder.firstChild;
+  }
 
-    dropdownElement.update();
-  });
-})();
+  open() {
+    this.closeAllDropdowns();
+
+    this.domElement.classList.add("dropdown-open");
+    this.domInput.placeholder = this.domInput.getAttribute(
+      "data-placeholder-focus"
+    );
+  }
+
+  close() {
+    this.domElement.classList.remove("dropdown-open");
+    this.domInput.placeholder = this.domInput.getAttribute("data-placeholder");
+    this.domInput.value = "";
+    this.value = "";
+    this.filterDomItems();
+  }
+
+  render() {
+    this.domList.innerHTML = "";
+
+    this.items.forEach((item) => {
+      this.domList.appendChild(this.domItemTemplate(item));
+    });
+  }
+
+  filterDomItems() {
+    const searchQuery = this.value.toLowerCase();
+    this.domList.childNodes.forEach((domItem) => {
+      domItem.getAttribute("data-name").includes(searchQuery)
+        ? (domItem.style.display = "block")
+        : (domItem.style.display = "none");
+    });
+  }
+
+  isOpen() {
+    return this.domElement.classList.contains("dropdown-open");
+  }
+
+  filterItems() {
+    this.items.sort(function (a, b) {
+      return a === b ? 0 : a > b ? 1 : -1;
+    });
+  }
+
+  addItem(name) {
+    this.items.push(name);
+    this.filterItems();
+
+    this.render();
+  }
+
+  removeItem(name) {
+    this.items = this.items.filter(function (item) {
+      return item !== name;
+    });
+    this.filterItems();
+
+    this.render();
+  }
+
+  setItems(items) {
+    this.items = items;
+    this.filterItems();
+
+    this.render();
+  }
+
+  clearItems() {
+    this.items = [];
+
+    this.render();
+  }
+
+  setCallback(callback) {
+    this.callback = callback;
+  }
+
+  setExpendable(val) {
+    this.expandable = val;
+    this.domInput.disabled = !this.expandable;
+  }
+}
