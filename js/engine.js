@@ -175,6 +175,148 @@ utensilsDropdown.setCallback(function (name, type) {
 function performAlgo() {
   availableRecipes = getRecipes();
 
+  if (mainquery.length >= 3) {
+    // Query
+    const parsedQuery = mainquery.toLowerCase().trim().replaceAll("  ", "");
+    const parsedQueryArray = parsedQuery.split(" ");
+
+    availableRecipes = availableRecipes.filter(function (recipe) {
+      const parsedRecipeNameArray = recipe.name
+        .toLowerCase()
+        .trim()
+        .replaceAll("  ", "")
+        .split(" ");
+
+      const parsedRecipeDescriptionArray = recipe.description
+        .toLowerCase()
+        .trim()
+        .replaceAll("  ", "")
+        .split(" ");
+
+      const parsedRecipeIngredientsArray = recipe.ingredients.map(function (
+        ingredient
+      ) {
+        return ingredient.ingredient.toLowerCase().trim();
+      });
+
+      const nameCond = parsedQueryArray.every((item) => {
+        return (
+          parsedRecipeNameArray.filter(function (nameItem) {
+            return nameItem.includes(item);
+          }).length > 0
+        );
+      });
+
+      const descriptionCond = parsedQueryArray.every((item) => {
+        return (
+          parsedRecipeDescriptionArray.filter(function (descrtipionItem) {
+            return descrtipionItem.includes(item);
+          }).length > 0
+        );
+      });
+
+      const ingredientsCond = parsedQueryArray.every((item) => {
+        return (
+          parsedRecipeNameArray.filter(function (nameItem) {
+            return nameItem.includes(item);
+          }).length > 0
+        );
+      });
+
+      return nameCond || descriptionCond || ingredientsCond;
+    });
+
+    // Tags
+    const ingredientsTags = tags
+      .filter(function (tag) {
+        return tag.type === "ingredient";
+      })
+      .map(function (ingredient) {
+        return ingredient.name;
+      });
+    const devicesTags = tags
+      .filter(function (tag) {
+        return tag.type === "device";
+      })
+      .map(function (device) {
+        return device.name;
+      });
+    const utensilsTags = tags
+      .filter(function (tag) {
+        return tag.type === "utensil";
+      })
+      .map(function (utensil) {
+        return utensil.name;
+      });
+
+    const availableRecipesIngredients = function () {
+      let ingredients = [];
+
+      availableRecipes.forEach((recipe) => {
+        const recipeIngredients = recipe.ingredients.map(function (ingredient) {
+          return ingredient.ingredient.toLowerCase();
+        });
+
+        ingredients = ingredients.concat(recipeIngredients);
+      });
+
+      return ingredients;
+    };
+    const availableRecipesDevices = function () {
+      let devices = [];
+
+      availableRecipes.forEach((recipe) => {
+        devices.push(recipe.appliance.toLowerCase());
+      });
+
+      return devices;
+    };
+    const availableRecipesUtensils = function () {
+      let utensils = [];
+
+      availableRecipes.forEach((recipe) => {
+        const recipeUtensils = recipe.ustensils.map(function (utensil) {
+          return utensil.toLowerCase();
+        });
+
+        utensils = utensils.concat(recipeUtensils);
+      });
+
+      return utensils;
+    };
+
+    const availableIngredients = availableRecipesIngredients().filter(function (
+      ingredient
+    ) {
+      return !ingredientsTags.includes(ingredient);
+    });
+    const availableDevices = availableRecipesDevices().filter(function (
+      device
+    ) {
+      return !devicesTags.includes(device);
+    });
+    const availableUtensils = availableRecipesUtensils().filter(function (
+      utensil
+    ) {
+      return !utensilsTags.includes(utensil);
+    });
+
+    ingredientsDropdown.setItems(availableIngredients);
+    devicesDropdown.setItems(availableDevices);
+    utensilsDropdown.setItems(availableUtensils);
+
+    _registredDropdowns.forEach((dropdown) => {
+      dropdown.setExpendable(true);
+    });
+  } else {
+    _registredDropdowns.forEach((dropdown) => {
+      dropdown.setExpendable(false);
+      dropdown.close();
+    });
+    tags = [];
+    renderTags();
+  }
+
   renderRecipes(availableRecipes);
 }
 
