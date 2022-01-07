@@ -276,18 +276,6 @@ function performAlgo() {
     devicesDropdown.setItems(availableDevices);
     utensilsDropdown.setItems(availableUtensils);
 
-    availableRecipes = availableRecipes.filter(function (recipe) {
-      return true;
-    });
-
-    availableRecipes = availableRecipes.filter(function (recipe) {
-      return true;
-    });
-
-    availableRecipes = availableRecipes.filter(function (recipe) {
-      return true;
-    });
-
     _registredDropdowns.forEach((dropdown) => {
       dropdown.setExpendable(true);
     });
@@ -296,6 +284,8 @@ function performAlgo() {
       dropdown.setExpendable(false);
       dropdown.close();
     });
+    tags = [];
+    renderTags();
   }
 
   renderRecipes(availableRecipes);
