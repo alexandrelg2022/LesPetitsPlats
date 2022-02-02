@@ -26,7 +26,7 @@ function recipeTemplate(recipe) {
   });
 
   el.innerHTML = `<img
-  src="/assets/recipes/_empty.png"
+  src="assets/recipes/_empty.png"
   alt="${recipe.name}"
   class="recipes-item-banner"
 />
